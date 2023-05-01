@@ -100,7 +100,7 @@ class BurpExtender(IBurpExtender, ITab, IProxyListener, IExtensionStateListener)
         for traffic in http_traffic:
             http_service = traffic.getHttpService()
             res.add((http_service.getHost()))
-        return res
+        return set(sorted(list(res)))
 
     def submit_data(self, event):
         """
